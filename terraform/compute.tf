@@ -6,17 +6,17 @@ data "template_cloudinit_config" "workers" {
 
   part {
     content_type = "text/x-shellscript"
-    content      = templatefile("${path.module}/templates/shared/base.sh", {
-    # Database
-    db_username = aws_db_instance.default.username
-    db_password = aws_db_instance.default.password
-    db_hostname = aws_db_instance.default.address
-    db_port     = aws_db_instance.default.port
-    db_name     = aws_db_instance.default.name
+    content = templatefile("${path.module}/templates/shared/base.sh", {
+      # Database
+      db_username = aws_db_instance.default.username
+      db_password = aws_db_instance.default.password
+      db_hostname = aws_db_instance.default.address
+      db_port     = aws_db_instance.default.port
+      db_name     = aws_db_instance.default.name
 
-    # HCP Vault
-    hcp_vault_addr = hcp_vault_cluster.hcp_demostack.vault_private_endpoint_url
-    hcp_vault_admin_token = hcp_vault_cluster_admin_token.root.token
+      # HCP Vault
+      hcp_vault_addr        = hcp_vault_cluster.hcp_demostack.vault_private_endpoint_url
+      hcp_vault_admin_token = hcp_vault_cluster_admin_token.root.token
 
     })
   }

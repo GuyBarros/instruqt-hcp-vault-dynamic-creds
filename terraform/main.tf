@@ -10,11 +10,11 @@ terraform {
 }
 
 provider "aws" {
-#  region  = var.primary_region
-#  alias   = "primary"
-default_tags {
-tags = local.common_tags
-}
+  #  region  = var.primary_region
+  #  alias   = "primary"
+  default_tags {
+    tags = local.common_tags
+  }
 }
 
 

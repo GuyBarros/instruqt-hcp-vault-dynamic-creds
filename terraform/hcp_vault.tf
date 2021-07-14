@@ -8,3 +8,4 @@ resource "hcp_vault_cluster" "hcp_demostack" {
 resource "hcp_vault_cluster_admin_token" "root" {
   cluster_id = hcp_vault_cluster.hcp_demostack.cluster_id
 }
+

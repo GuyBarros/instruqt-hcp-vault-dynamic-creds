@@ -3,27 +3,27 @@
 
 
 output "database_username" {
-  value = aws_db_instance.default.username
-   sensitive = false
+  value     = aws_db_instance.default.username
+  sensitive = false
 }
 
 output "database_password" {
-  value = aws_db_instance.default.password
-   sensitive = true
+  value     = aws_db_instance.default.password
+  sensitive = true
 }
 
 output "database_hostname" {
-  value = aws_db_instance.default.address
+  value     = aws_db_instance.default.address
   sensitive = false
 }
 
 output "database_port" {
-  value = aws_db_instance.default.port
+  value     = aws_db_instance.default.port
   sensitive = false
 }
 
 output "database_name" {
-  value = aws_db_instance.default.name
+  value     = aws_db_instance.default.name
   sensitive = false
 }
 

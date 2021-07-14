@@ -2,11 +2,11 @@
 locals {
   # Common tags to be assigned to all resources
   common_tags = {
-    Name           = "Workshop"
-    owner          = "SE"
-    se-region      = var.region
-    terraform      = true
-    purpose        = "HCP Vault"
+    Name      = "Workshop"
+    owner     = "SE"
+    se-region = var.region
+    terraform = true
+    purpose   = "HCP Vault"
   }
 }
 

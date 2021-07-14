@@ -8,7 +8,7 @@ data "aws_ami" "ubuntu" {
   most_recent = true
 
   filter {
-    name = "name"
+    name   = "name"
     values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 
@@ -41,8 +41,8 @@ resource "aws_route" "internet_access" {
 
 
 resource "aws_route" "hcp_peering" {
-  route_table_id         = aws_vpc.demostack.main_route_table_id
-  destination_cidr_block = hcp_hvn.demostack.cidr_block
+  route_table_id            = aws_vpc.demostack.main_route_table_id
+  destination_cidr_block    = hcp_hvn.demostack.cidr_block
   vpc_peering_connection_id = hcp_aws_network_peering.demostack_peering.provider_peering_id
 }
 
@@ -131,7 +131,7 @@ resource "aws_security_group" "demostack" {
   }
 
   # SQL
-   ingress {
+  ingress {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
@@ -140,7 +140,7 @@ resource "aws_security_group" "demostack" {
   ########
 
   # SQL
-   ingress {
+  ingress {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
