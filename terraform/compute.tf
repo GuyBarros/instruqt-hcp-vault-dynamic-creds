@@ -8,12 +8,18 @@ data "template_cloudinit_config" "workers" {
     content_type = "text/x-shellscript"
     content = templatefile("${path.module}/templates/shared/base.sh", {
       # Database
-      db_username = aws_db_instance.default.username
-      db_password = aws_db_instance.default.password
-      db_hostname = aws_db_instance.default.address
-      db_port     = aws_db_instance.default.port
-      db_name     = aws_db_instance.default.name
-
+      #MYSQL
+      mysql_username = aws_db_instance.mysql.username
+      mysql_password = aws_db_instance.mysql.password
+      mysql_hostname = aws_db_instance.mysql.address
+      mysql_port     = aws_db_instance.mysql.port
+      mysql_name     = aws_db_instance.mysql.name
+      # Postgres
+      postgres_username = aws_db_instance.postgres.username
+      postgres_password = aws_db_instance.postgres.password
+      postgres_hostname = aws_db_instance.postgres.address
+      postgres_port     = aws_db_instance.postgres.port
+      postgres_name     = aws_db_instance.postgres.name
       # HCP Vault
       hcp_vault_addr        = hcp_vault_cluster.hcp_demostack.vault_private_endpoint_url
       hcp_vault_admin_token = hcp_vault_cluster_admin_token.root.token
