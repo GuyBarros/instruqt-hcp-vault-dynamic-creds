@@ -18,6 +18,8 @@ developers:
 - aburd@hashicorp.com
 private: true
 published: false
+show_timer: true
+skipping_enabled: true
 challenges:
 - slug: 01-set-up-demo-enviroment
   id: o35v3nwkqnyc
@@ -47,5 +49,5 @@ challenges:
     type: terminal
     hostname: bastion-host
   difficulty: basic
-  timelimit: 600
-checksum: "11129135390021354406"
+  timelimit: 14400
+checksum: "16261640042913689580"
