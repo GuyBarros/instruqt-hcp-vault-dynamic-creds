@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Manually Solving the track"
+
+exit 0

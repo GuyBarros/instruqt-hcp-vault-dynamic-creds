@@ -1,6 +1,24 @@
 version: "2"
 virtualmachines:
-- name: docker-vm
+- name: bastion-host
   image: instruqt/docker-2010
   shell: /bin/bash
+  environment:
+    AWS_DEFAULT_REGION: eu-west-2
   machine_type: n1-standard-1
+aws_accounts:
+- name: hcp-vault-rds-dynamic-credentials
+  iam_policy: |-
+    {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [ "iam:*", "ec2:*" , "rds:*","route53:*"],
+              "Resource": "*"
+            }
+          ]
+        }
+  managed_policies:
+  - arn:aws:iam::aws:policy/IAMFullAccess
+  - arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
