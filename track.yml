@@ -46,9 +46,9 @@ challenges:
     ```
 
     after this, please navigate to the terraform project directory:
-    '''
+    ```
     cd terraform-hcp-vault-dynamic-credentials-workshop
-    '''
+    ```
 
     now we can use this bastion host to run our terraform project:
 
@@ -58,8 +58,9 @@ challenges:
       terraform apply
     ```
 
+    after terraform finishes it's run lets login to the EC2 instance that we will use for configuration
     ```
-    for today we will follow the Instructor's guidance, written steps will follow shortly
+    ssh ubuntu@<workers>
     ```
 
     To complete the
@@ -74,4 +75,4 @@ challenges:
     path: /root/terraform-hcp-vault-dynamic-credentials-workshop/
   difficulty: basic
   timelimit: 14400
-checksum: "11437544102674868779"
+checksum: "13852702454715621816"
