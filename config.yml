@@ -14,7 +14,7 @@ aws_accounts:
           "Statement": [
             {
               "Effect": "Allow",
-              "Action": [ "iam:*", "ec2:*" , "rds:*","route53:*"],
+              "Action": [ "iam:*", "ec2:*" , "rds:*","route53:*","kms:*"],
               "Resource": "*"
             }
           ]

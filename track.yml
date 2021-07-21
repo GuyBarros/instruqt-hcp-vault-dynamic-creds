@@ -36,7 +36,27 @@ challenges:
 
     on This track we will automate the creation our enviroments, for this we will need HCP Service Principal to use with terraform.
 
-    after signing up to Hashicorp Cloud Platform, navigate to Access control (IAM) -> Service Principal
+    after signing up to Hashicorp Cloud Platform, navigate to Access control (IAM) -> Service Principal and generate a new Service Principal and Secret Key.
+    please note these down.
+
+    in the bastion host terminal, export these credentials to your enviroment variables:
+    ```
+    export HCP_CLIENT_ID=<YOUR_HCP_SERVICE_PRINCIPAL_ID>
+    export HCP_CLIENT_SECRET=<YOU_HCP_SECRET_KEY>
+    ```
+
+    after this, please navigate to the terraform project directory:
+    '''
+    cd terraform-hcp-vault-dynamic-credentials-workshop
+    '''
+
+    now we can use this bastion host to run our terraform project:
+
+    ```
+      terraform init
+      terraform plan
+      terraform apply
+    ```
 
     ```
     for today we will follow the Instructor's guidance, written steps will follow shortly
@@ -48,6 +68,10 @@ challenges:
   - title: Terminal
     type: terminal
     hostname: bastion-host
+  - title: Visual Studio Code
+    type: code
+    hostname: bastion-host
+    path: /root/terraform-hcp-vault-dynamic-credentials-workshop/
   difficulty: basic
   timelimit: 14400
-checksum: "16261640042913689580"
+checksum: "11437544102674868779"

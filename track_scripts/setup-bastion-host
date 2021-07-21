@@ -47,7 +47,11 @@ apt-get install -y \
   terraform
 
   echo "--> Pulling Workshop Terraform Repo"
-  git clone https://github.com/GuyBarros/terraform-hcp-vault-dynamic-credentials-workshop
+  git clone -b no_tfc https://github.com/GuyBarros/terraform-hcp-vault-dynamic-credentials-workshop.git
+
+  echo "--> do first TF init to ensure cleanup script runs without fail"
+  cd /root/terraform-hcp-vault-dynamic-credentials-workshop/
+  terraform init
 
   sudo tee /root/terraform-hcp-vault-dynamic-credentials-workshop/terraform.tfvars > /dev/null <<EOF
   public_key = "$(cat /root/.ssh/id_rsa.pub)"
@@ -55,4 +59,3 @@ apt-get install -y \
   # please remember to add HCP_CLIENT_SECRET to your enviroment variables
   host_access_ip = ["$(curl -sS 'https://api.ipify.org?format=json' | jq -r ."ip")/32"]
 
-  EOF

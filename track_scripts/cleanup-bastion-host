@@ -1,0 +1,3 @@
+cd /root/terraform-hcp-vault-dynamic-credentials-workshop/
+
+terraform destroy -auto-approve
