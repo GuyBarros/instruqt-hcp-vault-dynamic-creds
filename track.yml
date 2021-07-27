@@ -16,6 +16,7 @@ owner: hashicorp
 developers:
 - guy@hashicorp.com
 - aburd@hashicorp.com
+- jboero@hashicorp.com
 private: true
 published: false
 show_timer: true
@@ -31,40 +32,35 @@ challenges:
     contents: |
       # HCP Vault
       HCP Vault allows organizations to get Vault clusters up and running quickly, providing access to best-in-class secrets management and encryption capabilities with the platform providing resilience and operational excellence as a service.
-  assignment: |
-    Sign up to HCP Vault : https://portal.cloud.hashicorp.com/
+  assignment: |-
+    Sign up to HCP Vault if you haven't already: https://portal.cloud.hashicorp.com/
 
-    on This track we will automate the creation our enviroments, for this we will need HCP Service Principal to use with terraform.
+    In This track we will automate the creation of our enviroments, for this we will need HCP credentials for a Service Principal to use with Terraform.
 
-    after signing up to Hashicorp Cloud Platform, navigate to Access control (IAM) -> Service Principal and generate a new Service Principal and Secret Key.
-    please note these down.
+    after signing up to Hashicorp Cloud Platform, navigate to Access control (IAM) -> Service Principal and generate a new Service Principal and Secret Key. Please note these down.
 
-    in the bastion host terminal, export these credentials to your enviroment variables:
+    In the bastion host terminal, export these credentials to your enviroment variables:
     ```
     export HCP_CLIENT_ID=<YOUR_HCP_SERVICE_PRINCIPAL_ID>
     export HCP_CLIENT_SECRET=<YOU_HCP_SECRET_KEY>
     ```
 
-    after this, please navigate to the terraform project directory:
+    After this, please navigate to the terraform project directory:
     ```
     cd terraform-hcp-vault-dynamic-credentials-workshop
     ```
 
-    now we can use this bastion host to run our terraform project:
-
+    Now we can use this bastion host to run our terraform project:
     ```
       terraform init
       terraform plan
       terraform apply
     ```
 
-    after terraform finishes it's run lets login to the EC2 instance that we will use for configuration
-    ```
-    ssh ubuntu@<workers>
-    ```
+    For today we will follow the Instructor's guidance, written steps will follow shortly
 
     To complete the
-    challenge, press **Check**."
+    challenge, press **Check**
   tabs:
   - title: Terminal
     type: terminal
@@ -75,4 +71,21 @@ challenges:
     path: /root/terraform-hcp-vault-dynamic-credentials-workshop/
   difficulty: basic
   timelimit: 14400
-checksum: "13852702454715621816"
+- slug: hcp-sp
+  id: j4xrs7wbdxqe
+  type: challenge
+  title: Exploring Service Principals
+  teaser: Learn about HCP service principals.
+  assignment: |-
+    Now we'll generate three service principals.  Service principals come in 3 types:
+    1. Admin
+    1. Contributor
+    1. Viewer
+    A policy of least privilege can be used to limit API access to reading HCP state for things like Terraform data sources.  HCP lets you create named service principals and then create one or more tokens to access that service principal.  Be sure to delete any service principals you create during this workshop as they won't be destroyed when Instruqt expires your track.
+    https://portal.cloud.hashicorp.com/access/service-principals
+    ```
+    https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/guides/auth
+    ```
+  difficulty: basic
+  timelimit: 600
+checksum: "9826398299496825989"

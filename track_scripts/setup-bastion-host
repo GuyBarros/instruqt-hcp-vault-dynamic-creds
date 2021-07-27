@@ -56,11 +56,9 @@ apt-get install -y \
 
   sudo tee /root/terraform-hcp-vault-dynamic-credentials-workshop/terraform.tfvars > /dev/null <<EOF
   public_key = "$(cat /root/.ssh/id_rsa.pub)"
-
   name="Instruqt Track ID $(echo $INSTRUQT_TRACK_ID)"
   owner="$(echo $INSTRUQT_USER_NAME)"
   purpose="track invite $(echo $INSTRUQT_TRACK_INVITE_ID)"
-
+  namespace="$(echo $INSTRUQT_USER_NAME)"
   # please remember to add HCP_CLIENT_SECRET to your enviroment variables
   host_access_ip = ["$(curl -sS 'https://api.ipify.org?format=json' | jq -r ."ip")/32"]
-
