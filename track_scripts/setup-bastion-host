@@ -47,19 +47,18 @@ apt-get install -y \
   vault-enterprise \
   terraform
 
-echo "--> Pulling Workshop Terraform Repo"
-git clone -b no_tfc https://github.com/GuyBarros/terraform-hcp-vault-dynamic-credentials-workshop.git
+  echo "--> Pulling Workshop Terraform Repo"
+  git clone -b no_tfc https://github.com/GuyBarros/terraform-hcp-vault-dynamic-credentials-workshop.git
 
-echo "--> do first TF init to ensure cleanup script runs without fail"
-cd /root/terraform-hcp-vault-dynamic-credentials-workshop/
-terraform init
+  echo "--> do first TF init to ensure cleanup script runs without fail"
+  cd /root/terraform-hcp-vault-dynamic-credentials-workshop/
+  terraform init
 
-sudo tee /root/terraform-hcp-vault-dynamic-credentials-workshop/terraform.tfvars > /dev/null <<EOF
-public_key = "$(cat /root/.ssh/id_rsa.pub)"
-name="Instruqt Track ID $(echo $INSTRUQT_TRACK_ID)"
-owner="$(echo $INSTRUQT_USER_NAME)"
-purpose="track invite $(echo $INSTRUQT_TRACK_INVITE_ID)"
-namespace="$(echo $INSTRUQT_USER_NAME)"
-# please remember to add HCP_CLIENT_SECRET to your enviroment variables
-host_access_ip = ["$(curl -sS 'https://api.ipify.org?format=json' | jq -r ."ip")/32"]
-EOF
+  sudo tee /root/terraform-hcp-vault-dynamic-credentials-workshop/terraform.tfvars > /dev/null <<EOF
+  public_key = "$(cat /root/.ssh/id_rsa.pub)"
+  name="Instruqt Track ID $(echo $INSTRUQT_TRACK_ID)"
+  owner="$(echo $INSTRUQT_USER_NAME)"
+  purpose="track invite $(echo $INSTRUQT_TRACK_INVITE_ID)"
+  namespace="$(echo $INSTRUQT_USER_NAME)"
+  # please remember to add HCP_CLIENT_SECRET to your enviroment variables
+  host_access_ip = ["$(curl -sS 'https://api.ipify.org?format=json' | jq -r ."ip")/32"]

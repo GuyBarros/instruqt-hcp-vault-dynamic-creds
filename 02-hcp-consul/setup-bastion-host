@@ -1,0 +1,2 @@
+#!/bin/bash -x
+git clone git@github.com:hashicorp/learn-hcp-consul.git

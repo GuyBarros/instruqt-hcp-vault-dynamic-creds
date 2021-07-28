@@ -26,7 +26,7 @@ challenges:
   id: o35v3nwkqnyc
   type: challenge
   title: Setting up HCP Vault and AWS RDS Mysql Database
-  teaser: set up HCP Vault and Database for dynamic secrets
+  teaser: Set up HCP Vault and Database for dynamic secrets
   notes:
   - type: text
     contents: |
@@ -71,7 +71,26 @@ challenges:
     path: /root/terraform-hcp-vault-dynamic-credentials-workshop/
   difficulty: basic
   timelimit: 14400
-- slug: hcp-sp
+- slug: 02-hcp-consul
+  id: vjn4iaqx7azl
+  type: challenge
+  title: Add a Consul Cluster
+  teaser: Create a Consul cluster on HCP.
+  assignment: |-
+    Now add a Consul cluster. This is guidance from our learning portal.
+    ```
+    cd learn-hcp-consul
+    ```
+    The challenge now is to update VPC peering with your HVN and account details following the Learning Portal instructions.
+    https://learn.hashicorp.com/tutorials/cloud/terraform-hcp-consul-provider
+    ```
+    terraform init
+    terraform plan
+    ```
+    You could also use a Terraform data source to look up the state from your other workspace.  You don't need to actually have a Consul cluster created to pass this challenge check but it is a sandbox where you can experiment with Consul.
+  difficulty: basic
+  timelimit: 600
+- slug: 03-hcp-sp
   id: j4xrs7wbdxqe
   type: challenge
   title: Exploring Service Principals
@@ -88,4 +107,4 @@ challenges:
     ```
   difficulty: basic
   timelimit: 600
-checksum: "9826398299496825989"
+checksum: "5378505660488174630"
