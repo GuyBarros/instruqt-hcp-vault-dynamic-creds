@@ -25,7 +25,7 @@ challenges:
 - slug: 01-set-up-demo-enviroment
   id: o35v3nwkqnyc
   type: challenge
-  title: Setting up HCP Vault and AWS RDS Mysql Database
+  title: Set up HCP Vault and AWS RDS Mysql Database
   teaser: Set up HCP Vault and Database for dynamic secrets
   notes:
   - type: text
@@ -107,4 +107,4 @@ challenges:
     ```
   difficulty: basic
   timelimit: 600
-checksum: "5378505660488174630"
+checksum: "16189307509076687813"
