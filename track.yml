@@ -7,6 +7,7 @@ description: |-
   # HCP Vault Dynamic Credentials
   This will be our bastion host for AWS and HCP Vault
 icon: https://storage.googleapis.com/instruqt-frontend/assets/hashicorp/tracks/vault.png
+level: intermediate
 tags:
 - hcp vault
 - vault
@@ -16,9 +17,11 @@ owner: hashicorp
 developers:
 - guy@hashicorp.com
 - aburd@hashicorp.com
+- pphan@hashicorp.com
+- rpeteuil@hashicorp.com
 - jboero@hashicorp.com
 private: true
-published: false
+published: true
 show_timer: true
 skipping_enabled: true
 challenges:
@@ -88,6 +91,10 @@ challenges:
     terraform plan
     ```
     You could also use a Terraform data source to look up the state from your other workspace.  You don't need to actually have a Consul cluster created to pass this challenge check but it is a sandbox where you can experiment with Consul.
+  tabs:
+  - title: Terminal
+    type: terminal
+    hostname: bastion-host
   difficulty: basic
   timelimit: 600
 - slug: 03-hcp-sp
@@ -107,4 +114,4 @@ challenges:
     ```
   difficulty: basic
   timelimit: 600
-checksum: "16189307509076687813"
+checksum: "11498498359345291913"
